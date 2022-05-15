@@ -7,7 +7,9 @@ function sync_code()
     dir=$3
     extra_flags=$4
 
-    echo $@
+    if [ ! -d "$loc" ]; then
+        mkdir -p "$loc"
+    fi
 
     src=$remote
     dst=$loc
@@ -72,6 +74,10 @@ do
             chi=true
             chi_lite=true
             ;;
+        chi-full)
+            chi=true
+            chi_full=true
+            ;;
         camx)
             camx=true
             ;;
@@ -97,10 +103,12 @@ host="mi@kzhang9u:~/ssd/l1/"
 if [ "$chi" == "true" ] || [ "$all" == "true" ];
 then
     target="vendor/qcom/proprietary/chi-cdk/"
-    #flag="-f'+ *.xml'"
 
     if [ "$chi_lite" == "true" ]; then
         flag="-f'- topology*'"
+    fi
+    if [ "$chi_full" == "true" ]; then
+        flag="-f'+ *.xml'"
     fi
 
     sync_code $host$target $target $dir "$flag"
