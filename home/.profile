@@ -17,12 +17,13 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+#PATH="$HOME/bin:$PATH"
+PATH="/home/mi/bin:$PATH"
+PATH+=":$HOME/.local/bin"
 PATH+=":/home/mi/Android/Sdk/platform-tools"
 PATH+=":/home/mi/Android/Sdk/tools"
 PATH+=":/home/mi/Android/Sdk/tools/bin"
-PATH+=":/home/mi/Android/Sdk/build-tools/28.0.0"
+PATH+=":/home/mi/Android/Sdk/build-tools/30.0.2"
 PATH+=":/home/mi/bin/myscript"
 PATH+=":/home/mi/tools"
-PATH+=":/home/mi/Downloads/android-studio/bin"
 PATH+=":/home/mi/bin/platform-tools"
